@@ -1,6 +1,5 @@
 // Assignment code here
 
-
 // Define character arrays for password criteria to choose from
 var lowercaseCharacters = "abcdefghijklmnopqrstuvwxyz";
 var uppercaseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -22,10 +21,19 @@ function generatePassword() {
 
   // Combines user inputs into a character set
   var characterSet = "";
-  if (includeLowercase) characterSet += lowercaseChars;
-  if (includeUppercase) characterSet += uppercaseChars;
-  if (includeNumeric) characterSet += numericChars;
-  if (includeSpecial) characterSet += specialChars;
+  if (includeLowercase) characterSet += lowercaseCharacters;
+  if (includeUppercase) characterSet += uppercaseCharacters;
+  if (includeNumeric) characterSet += numericCharacters;
+  if (includeSpecial) characterSet += specialCharacters;
+  
+  // Math calculations for random generation of password
+  var password = "";
+    for (var i = 0; i < length; i++) {
+      var randomIndex = Math.floor(Math.random() * characterSet.length);
+      password += characterSet.charAt(randomIndex);
+    }
+
+  return password;
 }
 
 
